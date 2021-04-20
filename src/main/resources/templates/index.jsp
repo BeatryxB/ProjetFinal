@@ -11,6 +11,6 @@
     <title>Projet Final</title>
 </head>
 <body>
-<h1>JE suis une pute</h1>
+<h1>je suis un titre principal</h1>
 </body>
 </html>
