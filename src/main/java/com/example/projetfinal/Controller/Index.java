@@ -17,13 +17,8 @@ public class Index {
     }
 
     @GetMapping({"/","/hello"})
-    public String hello(Model model, @RequestParam(value="name", required=false, defaultValue="Beatryx") String name) {
+    public String hello(Model model, @RequestParam(value="name", required=false, defaultValue="World") String name) {
         model.addAttribute("name", name);
-        User u = this.repositorie.getUserByPseudo("voilumets");
-        model.addAttribute("username1", u.getFirstName());
-        this.repositorie.save(new User("violent","jean", "Dupont", "17/08/1998", false, "Male","co"));
-        model.addAttribute("username2", this.repositorie.findById(2L).get().getPseudo());
-        model.containsAttribute("error");
         return "hello";
     }
 
