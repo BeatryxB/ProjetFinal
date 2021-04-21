@@ -2,15 +2,16 @@
   Created by IntelliJ IDEA.
   User: BBeugnet
   Date: 20/04/2021
-  Time: 11:50
+  Time: 20:59
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Projet Final</title>
+    <meta charset="UTF-8">
+    <title>Hello ${name}!</title>
 </head>
 <body>
-<h1>je suis un titre principal</h1>
+<h2 class="hello-title">Hello ${name}!</h2>
 </body>
 </html>

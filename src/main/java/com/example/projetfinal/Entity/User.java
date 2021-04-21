@@ -79,7 +79,7 @@ public class User {
         return id;
     }
 
-    @Override
+    /*@Override
     public String toString() {
         return "User{" +
                 "id=" + id +
@@ -89,5 +89,5 @@ public class User {
                 ", handicap=" + handicap +
                 ", gender='" + gender + '\'' +
                 '}';
-    }
+    }*/
 }
