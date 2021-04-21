@@ -14,20 +14,21 @@
 <h1>Create your account</h1>
 <form method="post">
     <p>Pseudo :<input type="text" name="pseudo" id="pseudo"/></p>
-    <p>FirstName :<input type="text" name="firstname" id="firstname"/></p>
-    <p>LastName :<input type="text" name="lastname" id="lastname"/></p>
-    <p>Date of birth :<input type="date" name="date" id="date"/></p>
+    <p>FirstName :<input type="text" name="firstName" id="firstname"/></p>
+    <p>LastName :<input type="text" name="lastName" id="lastname"/></p>
+    <p>Date of birth :<input type="date" name="dateOfBirth" id="date"/></p>
     <p>Gender :
-        <select name="pseudo" id="gender">
+        <select name="gender" id="gender">
+        <option value=""></option>
         <option value="Female">Female</option>
         <option value="Male">Male</option>
         <option value="Other">Other</option>
         </select>
     </p>
-    <p>Password :<input type="password" name="password1" id="password1"/></p>
-    <p>Retype Password :<input type="password" name="password2" id="password2"/></p>
+    <p>Password :<input type="password" name="password" id="password1"/></p>
+    <p>Retype Password :<input type="password" name="password" id="password2"/></p>
     <input type="submit"/>
-    <p style="color:red"> test ${error}</p>
+    <p style="color:red">${error}</p>
     <a href="login">If you have any account, you can click here.</a>
 </form>
 </body>

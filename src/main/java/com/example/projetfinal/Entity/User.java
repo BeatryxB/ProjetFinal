@@ -20,12 +20,11 @@ public class User {
     private String gender;
     private String password;
 
-    public User(String pseudo, String firstName, String lastName, String dateOfBirth, boolean handicap, String gender, String password) {
+    public User(String pseudo, String firstName, String lastName, String dateOfBirth, String gender, String password) {
         this.pseudo = pseudo;
         this.firstName = firstName;
         this.lastName = lastName;
         this.dateOfBirth = dateOfBirth;
-        this.handicap = handicap;
         this.gender = gender;
         this.password = password;
     }
@@ -62,14 +61,6 @@ public class User {
         this.dateOfBirth = dateOfBirth;
     }
 
-    public boolean isHandicap() {
-        return handicap;
-    }
-
-    public void setHandicap(boolean handicap) {
-        this.handicap = handicap;
-    }
-
     public String getGender() {
         return gender;
     }
@@ -101,12 +92,11 @@ public class User {
     @Override
     public String toString() {
         return "User{" +
-                "id=" + idUser +
                 ", Pseudo='" + pseudo + '\'' +
+                ", Password='" + password + '\'' +
                 ", FirstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", dateOfBirth='" + dateOfBirth + '\'' +
-                ", handicap=" + handicap +
                 ", gender='" + gender + '\'' +
                 '}';
     }

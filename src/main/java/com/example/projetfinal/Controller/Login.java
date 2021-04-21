@@ -47,7 +47,7 @@ public class Login {
             try{
                 long l = repository.getUserByPseudo(u.getPseudo()).getIdUser();
                 if(repository.findById(l).get().getPassword().equals(u.getPassword())){
-                    return "home";
+                    return "redirect:/home";
                 }
                 else{
                     model.addAttribute("error", "username or password doesn't match");
