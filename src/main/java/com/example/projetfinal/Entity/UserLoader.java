@@ -15,6 +15,7 @@ public class UserLoader implements CommandLineRunner {
     }
     @Override
     public void run(String... strings)throws Exception {
-        this.repository.save(new User("beatryx", "Beugnet", "17/08/1997", false, "Female"));
+        this.repository.save(new User("voilumets","beatryx", "Beugnet", "17/08/1997", false, "Female","coucou"));
+        //this.repository.save(new User("jean", "Dupont", "17/08/1998", false, "Male","co"));
     }
 }

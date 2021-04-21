@@ -4,7 +4,6 @@ import org.springframework.data.annotation.Id;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import java.util.Date;
 
 @Entity
 public class User {
@@ -12,27 +11,39 @@ public class User {
     @javax.persistence.Id
     @GeneratedValue
     private @Id
-    Long id;
-    private String FirstName;
+    Long idUser;
+    private String pseudo;
+    private String firstName;
     private String lastName;
     private String dateOfBirth;
     private boolean handicap;
     private String gender;
+    private String password;
 
-    public User(String firstName, String lastName, String dateOfBirth, boolean handicap, String gender) {
-        FirstName = firstName;
+    public User(String pseudo, String firstName, String lastName, String dateOfBirth, boolean handicap, String gender, String password) {
+        this.pseudo = pseudo;
+        this.firstName = firstName;
         this.lastName = lastName;
         this.dateOfBirth = dateOfBirth;
         this.handicap = handicap;
         this.gender = gender;
+        this.password = password;
+    }
+
+    public String getPseudo() {
+        return pseudo;
+    }
+
+    public void setPseudo(String pseudo) {
+        this.pseudo = pseudo;
     }
 
     public String getFirstName() {
-        return FirstName;
+        return firstName;
     }
 
     public void setFirstName(String firstName) {
-        FirstName = firstName;
+        this.firstName = firstName;
     }
 
     public String getLastName() {
@@ -67,27 +78,36 @@ public class User {
         this.gender = gender;
     }
 
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
     public User() {
 
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setIdUser(Long id) {
+        this.idUser = id;
     }
 
-    public Long getId() {
-        return id;
+    public Long getIdUser() {
+        return idUser;
     }
 
-    /*@Override
+    @Override
     public String toString() {
         return "User{" +
-                "id=" + id +
-                ", FirstName='" + FirstName + '\'' +
+                "id=" + idUser +
+                ", Pseudo='" + pseudo + '\'' +
+                ", FirstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", dateOfBirth='" + dateOfBirth + '\'' +
                 ", handicap=" + handicap +
                 ", gender='" + gender + '\'' +
                 '}';
-    }*/
+    }
 }

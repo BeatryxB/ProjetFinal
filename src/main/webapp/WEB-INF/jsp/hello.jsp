@@ -13,5 +13,8 @@
 </head>
 <body>
 <h2 class="hello-title">Hello ${name}!</h2>
+<h2 class="hello-title">Hello ${username1}!</h2>
+<h2 class="hello-title">Hello ${username2}!</h2>
+<a href="login"> click here to go on Login page</a>
 </body>
 </html>
