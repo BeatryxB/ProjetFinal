@@ -1,23 +1,22 @@
 package com.example.projetfinal.Entity;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 
 @Entity
 public class Reservation {
     @Id
     @GeneratedValue
     private Long idReservation;
-    @OneToOne
-    @JoinColumn(name="id_user", nullable = false)
+    @ManyToOne(fetch = FetchType.LAZY)
     private User user;
-    @OneToOne
-    @JoinColumn(name="id_event", nullable = false)
+    @ManyToOne(fetch = FetchType.LAZY)
     private Event event;
     private boolean payee;
 
-    public Reservation(User user, Event event, boolean payee) {
+    public Reservation(User user, Event event) {
         this.user = user;
-        this.event = event;
+        this.event= event;
         this.payee = false;
     }
 

@@ -9,8 +9,11 @@
 <html>
 <head>
     <title>Sign Up</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <style><%@include file="style/style.css"%></style>
 </head>
 <body>
+<div class="div_background">
 <h1>Create your account</h1>
 <form method="post">
     <p>Pseudo :<input type="text" name="pseudo" id="pseudo"/></p>
@@ -27,9 +30,10 @@
     </p>
     <p>Password :<input type="password" name="password" id="password1"/></p>
     <p>Retype Password :<input type="password" name="password" id="password2"/></p>
-    <input type="submit"/>
+    <input type="submit" class="btn btn-success" value="SignUp"/>
     <p style="color:red">${error}</p>
-    <a href="login">If you have any account, you can click here.</a>
+    <a href="login" class="btn btn-secondary">If you have any account, you can click here.</a>
 </form>
+</div>
 </body>
 </html>

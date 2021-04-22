@@ -16,9 +16,8 @@ public class Index {
         this.repositorie = repositorie;
     }
 
-    @GetMapping({"/","/hello"})
-    public String hello(Model model, @RequestParam(value="name", required=false, defaultValue="World") String name) {
-        model.addAttribute("name", name);
+    @GetMapping({"/"})
+    public String hello() {
         return "hello";
     }
 

@@ -10,6 +10,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -35,7 +36,7 @@ public class Login {
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public String loginRequest(@ModelAttribute("user") User user, BindingResult result, ModelMap model) {
+    public String loginRequest(@ModelAttribute("user") User user, BindingResult result, final RedirectAttributes ra, ModelMap model) {
 
         User u = (User) result.getTarget();
 
@@ -47,6 +48,7 @@ public class Login {
             try{
                 long l = repository.getUserByPseudo(u.getPseudo()).getIdUser();
                 if(repository.findById(l).get().getPassword().equals(u.getPassword())){
+                    ra.addFlashAttribute("user", u);
                     return "redirect:/home";
                 }
                 else{
@@ -60,10 +62,5 @@ public class Login {
         }
 
         return "login";
-    }
-
-    @RequestMapping("/home")
-    public String loginokay() {
-        return "home";
     }
 }

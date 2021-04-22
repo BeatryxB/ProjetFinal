@@ -9,16 +9,19 @@
 <html>
 <head>
     <title>Login</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <style><%@include file="style/style.css"%></style>
 </head>
 <body>
-<h1>Login here</h1>
+<div class="div_background">
+<h1>Login</h1>
 <form method="post" action="login">
 <p>Pseudo :<input type="text" name="pseudo" id="pseudo"/></p>
 <p>Password :<input type="password" name="password" id="password"/></p>
-<input type="submit"/>
+<input type="submit" class="btn btn-success" value="Login"/>
 </form>
 <p style="color:red">${error}</p>
-<a href="signup">If you want one account, you can click here.</a>
-
+<a href="signup" class="btn btn-secondary">If you want one account, you can click here.</a>
+</div>
 </body>
 </html>

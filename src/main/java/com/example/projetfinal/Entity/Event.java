@@ -1,8 +1,6 @@
 package com.example.projetfinal.Entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Event {
@@ -10,13 +8,14 @@ public class Event {
     @Id
     @GeneratedValue
     private Long idEvent;
+    @ManyToOne(cascade = {CascadeType.ALL})
+    private Type type;
     private String titre;
     private String description;
-    private String type;
     private String date;
     private String localisation;
 
-    public Event(String titre, String description, String type, String date, String localisation) {
+    public Event(String titre, String description, Type type, String date, String localisation) {
         this.titre = titre;
         this.description = description;
         this.type = type;
@@ -44,11 +43,11 @@ public class Event {
         this.description = description;
     }
 
-    public String getType() {
+    public Type getType() {
         return type;
     }
 
-    public void setType(String type) {
+    public void setType(Type type) {
         this.type = type;
     }
 
