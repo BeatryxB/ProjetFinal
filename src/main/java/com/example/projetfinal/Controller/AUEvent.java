@@ -54,4 +54,23 @@ public class AUEvent {
         return "auEvent";
     }
 
+    @RequestMapping(value = "/auEvent", method = RequestMethod.POST)
+    public String UpdateEventRequest(@ModelAttribute("event") Event event, BindingResult result, ModelMap model) {
+
+        Event u = (Event) result.getTarget();
+        System.out.println(u);
+
+        if(u.getTitre().equals("")||u.getDescription().equals("")||u.getLocalisation().equals("")||u.getDate().equals("")||u.getType().equals("")||u.getType().equals("")){
+            model.addAttribute("error", "One of field isn't set");
+        }
+        else{
+
+            eventRepositorie.save(u);
+            model.addAttribute("error", "Your event was update, please sign in please");
+
+        }
+
+        return "auEvent";
+    }
+
 }
