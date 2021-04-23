@@ -45,6 +45,14 @@ public class Admin {
                 model.addAttribute("eventList", "They are not event");
             }
 
+            List<User> userList = ((List<User>) userRepositorie.findAll());
+            if(userList.size()>=0){
+                model.addAttribute("userList", userList);
+            }
+            else{
+                model.addAttribute("userList", "0 user");
+            }
+
             return "admin";
         }
     }

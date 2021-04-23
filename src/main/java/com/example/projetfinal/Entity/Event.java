@@ -18,15 +18,7 @@ public class Event {
     private String localisation;
 
 
-    public Event(Long id, String titre, String description, Type type, String date, String time, String localisation) {
-        this.titre = titre;
-        this.description = description;
-        this.type = type;
-        this.date = date;
-        this.time = time;
-        this.localisation = localisation;
-        this.idEvent = id;
-    }
+
     public Event(String titre, String description, Type type, String date, String time, String localisation) {
         this.titre = titre;
         this.description = description;

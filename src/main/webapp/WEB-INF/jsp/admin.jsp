@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: BBeugnet
@@ -24,22 +25,50 @@
                 <th>Date</th>
                 <th>Localisation</th>
             </tr>
-            <c:forEach var="eventList" items="${eventList}">
+            <c:forEach var="eventLists" items="${eventList}">
                 <tr>
-                    <td><c:out value="${eventList.idEvent}" /></td>
-                    <td><c:out value="${eventList.titre}" /></td>
-                    <td><c:out value="${eventList.description}" /></td>
-                    <td><c:out value="${eventList.date}" /></td>
-                    <td><c:out value="${eventList.localisation}" /></td>
-                     <td>
-                       <a href="edit?id=<c:out value='${eventList.idEvent}' />">Modifier</a>
+                    <td><c:out value="${eventLists.idEvent}" /></td>
+                    <td><c:out value="${eventLists.titre}" /></td>
+                    <td><c:out value="${eventLists.description}" /></td>
+                    <td><c:out value="${eventLists.date}" /></td>
+                    <td><c:out value="${eventLists.localisation}" /></td>
+                    <td>
+                        <a href="edit?id=<c:out value='${eventLists.idEvent}' />">Modifier</a>
                         &nbsp;&nbsp;&nbsp;&nbsp;
-                        <a href="delete?id=<c:out value='${eventList.idEvent}' />">Supprimer</a>
+                        <a href="delete?id=<c:out value='${eventLists.idEvent}' />">Supprimer</a>
                 </tr>
             </c:forEach>
         </table>
     </div>
 
+
+    <div align="right">
+        <table border="1" cellpadding="5">
+            <caption><h2>Liste des utilisateurs</h2></caption>
+            <tr>
+                <th>Id</th>
+                <th>Pseudo</th>
+                <th>Prenom</th>
+                <th>Nom</th>
+                <th>Date de naissance</th>
+                <th>Genre</th>
+            </tr>
+            <c:forEach var="userLists" items="${userList}">
+                <tr>
+                    <td><c:out value="${userLists.idUser}" /></td>
+                    <td><c:out value="${userLists.pseudo}" /></td>
+                    <td><c:out value="${userLists.firstName}" /></td>
+                    <td><c:out value="${userLists.lastName}" /></td>
+                    <td><c:out value="${userLists.dateOfBirth}" /></td>
+                    <td><c:out value="${userLists.gender}" /></td>
+                    <td>
+                        <a href="edit?id=<c:out value='${userLists.idUser}' />">Modifier</a>
+                        &nbsp;&nbsp;&nbsp;&nbsp
+                        <a href="delete?id=<c:out value='${userLists.idUser}' />">Supprimer</a>
+                </tr>
+            </c:forEach>
+        </table>
+    </div>
 
 </div>
 </body>
