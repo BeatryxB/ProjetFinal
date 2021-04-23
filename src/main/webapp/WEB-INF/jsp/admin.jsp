@@ -35,14 +35,16 @@
                     <td>
                         <a href="edit?id=<c:out value='${eventLists.idEvent}' />">Modifier</a>
                         &nbsp;&nbsp;&nbsp;&nbsp;
-                        <a href="delete?id=<c:out value='${eventLists.idEvent}' />">Supprimer</a>
+
+                        <a href="/deleteeven/${eventLists.idEvent}"class="btn btn-danger" />Supprimer</a>
+                    </td>
                 </tr>
             </c:forEach>
         </table>
     </div>
 
 
-    <div align="right">
+    <div align="center">
         <table border="1" cellpadding="5">
             <caption><h2>Liste des utilisateurs</h2></caption>
             <tr>
@@ -64,7 +66,7 @@
                     <td>
                         <a href="edit?id=<c:out value='${userLists.idUser}' />">Modifier</a>
                         &nbsp;&nbsp;&nbsp;&nbsp
-                        <a href="delete?id=<c:out value='${userLists.idUser}' />">Supprimer</a>
+                        <a href="/deleteeven/${eventLists.idEvent}' />">Supprimer</a>
                 </tr>
             </c:forEach>
         </table>

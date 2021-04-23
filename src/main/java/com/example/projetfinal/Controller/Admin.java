@@ -63,12 +63,9 @@ public class Admin {
         return "redirect:/admin";
     }
 
-    @RequestMapping(value = "/deleteeven/{idUser}", method = RequestMethod.GET)
+    @RequestMapping(value = "/deleteuser/{idUser}", method = RequestMethod.GET)
     public String DeleteUser(@PathVariable("idUser") Long idUser) {
-        eventRepositorie.deleteById(idUser);
+        userRepositorie.deleteById(idUser);
         return "redirect:/admin";
     }
-
-
-
 }
