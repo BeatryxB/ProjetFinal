@@ -41,7 +41,7 @@
                 </tr>
             </c:forEach>
         </table>
-        <a href="addEvent" class="btn btn-secondary">Add Event.</a>
+        <a href="auEvent" class="btn btn-secondary">Add Event.</a>
     </div>
 
 
