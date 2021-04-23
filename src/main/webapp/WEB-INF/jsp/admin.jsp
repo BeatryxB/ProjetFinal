@@ -17,7 +17,7 @@
 <div class="div_background">
     <div align="center">
         <table border="1" cellpadding="5">
-            <caption><h2>Event list</h2></caption>
+           <h2>Event list</h2>
             <tr>
                 <th>Id</th>
                 <th>Title</th>
@@ -47,7 +47,7 @@
 
     <div align="center">
         <table border="1" cellpadding="5">
-            <caption><h2>User list</h2></caption>
+            <h2>User list</h2>
             <tr>
                 <th>Id</th>
                 <th>Pseudo</th>
