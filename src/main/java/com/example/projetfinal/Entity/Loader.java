@@ -30,7 +30,7 @@ public class Loader implements CommandLineRunner {
         Event e2 = new Event("Concert2","Music Concert2",t,"12/01/2021","20","Church");
         this.userRepository.save(u);
         this.typeRepository.save(t);
-       this.eventRepository.save(e);
+        this.eventRepository.save(e);
         this.eventRepository.save(e2);
         this.reservationRepository.save(new Reservation(u,e));
         this.reservationRepository.save(new Reservation(u,e2));

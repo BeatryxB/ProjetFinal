@@ -17,10 +17,10 @@
 <div class="div_background">
     <div align="center">
         <table border="1" cellpadding="5">
-            <caption><h2>Liste des events</h2></caption>
+            <caption><h2>Event list</h2></caption>
             <tr>
                 <th>Id</th>
-                <th>Titre</th>
+                <th>Title</th>
                 <th>Description</th>
                 <th>Date</th>
                 <th>Localisation</th>
@@ -33,27 +33,28 @@
                     <td><c:out value="${eventLists.date}" /></td>
                     <td><c:out value="${eventLists.localisation}" /></td>
                     <td>
-                        <a href="edit?id=<c:out value='${eventLists.idEvent}' />">Modifier</a>
+                        <a href="edit?id=<c:out value='${eventLists.idEvent}' />">Update</a>
                         &nbsp;&nbsp;&nbsp;&nbsp;
 
-                        <a href="/deleteeven/${eventLists.idEvent}"class="btn btn-danger" />Supprimer</a>
+                        <a href="/deleteeven/${eventLists.idEvent}"class="btn btn-danger" />Delete</a>
                     </td>
                 </tr>
             </c:forEach>
         </table>
+        <a href="addEvent" class="btn btn-secondary">Add Event.</a>
     </div>
 
 
     <div align="center">
         <table border="1" cellpadding="5">
-            <caption><h2>Liste des utilisateurs</h2></caption>
+            <caption><h2>User list</h2></caption>
             <tr>
                 <th>Id</th>
                 <th>Pseudo</th>
-                <th>Prenom</th>
-                <th>Nom</th>
-                <th>Date de naissance</th>
-                <th>Genre</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Date of Birth</th>
+                <th>Gender</th>
             </tr>
             <c:forEach var="userLists" items="${userList}">
                 <tr>
@@ -64,12 +65,14 @@
                     <td><c:out value="${userLists.dateOfBirth}" /></td>
                     <td><c:out value="${userLists.gender}" /></td>
                     <td>
-                        <a href="edit?id=<c:out value='${userLists.idUser}' />">Modifier</a>
+                        <a href="edit?id=<c:out value='${userLists.idUser}' />">Update</a>
                         &nbsp;&nbsp;&nbsp;&nbsp
-                        <a href="/deleteeven/${eventLists.idEvent}' />">Supprimer</a>
+                        <a href="/deleteeven/${userLists.idUser}" class="btn btn-danger"  />>Delete</a>
+                    </td>
                 </tr>
             </c:forEach>
         </table>
+
     </div>
 
 </div>

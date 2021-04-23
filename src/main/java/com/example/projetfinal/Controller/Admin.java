@@ -63,6 +63,12 @@ public class Admin {
         return "redirect:/admin";
     }
 
+    @RequestMapping(value = "/addEvent", method = RequestMethod.GET)
+    public String AddEvent()
+    {
+        return "addEvent";
+    }
+
     @RequestMapping(value = "/deleteuser/{idUser}", method = RequestMethod.GET)
     public String DeleteUser(@PathVariable("idUser") Long idUser) {
         userRepositorie.deleteById(idUser);
