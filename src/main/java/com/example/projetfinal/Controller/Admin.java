@@ -63,10 +63,10 @@ public class Admin {
         return "redirect:/admin";
     }
 
-    @RequestMapping(value = "/addEvent", method = RequestMethod.GET)
-    public String AddEvent()
+    @RequestMapping(value = "/auEvent", method = RequestMethod.GET)
+    public String AUEvent()
     {
-        return "addEvent";
+        return "auEvent";
     }
 
     @RequestMapping(value = "/deleteuser/{idUser}", method = RequestMethod.GET)
