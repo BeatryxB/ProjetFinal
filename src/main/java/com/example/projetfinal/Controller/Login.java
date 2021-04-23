@@ -17,6 +17,7 @@ import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.Objects;
 
@@ -31,12 +32,17 @@ public class Login {
     }
 
     @RequestMapping("/login")
-    public String login() {
-        return "login";
+    public String login(HttpSession session) {
+        if(session.getAttribute("user")!=null){
+            return "redirect:/home";
+        }
+        else{
+            return "login";
+        }
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public String loginRequest(@ModelAttribute("user") User user, BindingResult result, final RedirectAttributes ra, ModelMap model) {
+    public String loginRequest(@ModelAttribute("user") User user, BindingResult result, ModelMap model, HttpServletRequest request) {
 
         User u = (User) result.getTarget();
 
@@ -48,7 +54,8 @@ public class Login {
             try{
                 long l = repository.getUserByPseudo(u.getPseudo()).getIdUser();
                 if(repository.findById(l).get().getPassword().equals(u.getPassword())){
-                    ra.addFlashAttribute("user", u);
+
+                    request.getSession().setAttribute("user",u.getPseudo());
                     return "redirect:/home";
                 }
                 else{

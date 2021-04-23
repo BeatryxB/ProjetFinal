@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: BBeugnet
@@ -14,8 +15,8 @@
 </head>
 <body>
 <div class="div_background">
-<h1>welcome ${user}</h1>
-<h2>${res}</h2>
+<h1>welcome ${user}    <a href="logout" class="btn btn-danger"> log out </a></h1>
+    <%@include file="Fragment/TableEventResByUser.jsp"%>
 </div>
 </body>
 </html>

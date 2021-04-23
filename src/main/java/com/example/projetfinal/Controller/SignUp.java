@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import javax.servlet.http.HttpSession;
+
 @Controller
 public class SignUp {
     private final UserRepository repositorie;
@@ -18,8 +20,13 @@ public class SignUp {
     }
 
     @RequestMapping("/signup")
-    public String signup() {
-        return "signup";
+    public String signup(HttpSession session) {
+        if(session.getAttribute("user")!=null){
+            return "redirect:/home";
+        }
+        else{
+            return "signup";
+        }
     }
 
     @RequestMapping(value = "/signup", method = RequestMethod.POST)

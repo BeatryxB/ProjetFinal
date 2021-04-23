@@ -10,7 +10,6 @@ public class Type {
     @GeneratedValue
     private Long id;
     private String typeField;
-
     public Type() {
 
     }

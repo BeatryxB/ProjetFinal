@@ -8,9 +8,11 @@ public class Reservation {
     @Id
     @GeneratedValue
     private Long idReservation;
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne()
+    @JoinColumn(name = "id_user")
     private User user;
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne()
+    @JoinColumn(name = "id_event")
     private Event event;
     private boolean payee;
 
@@ -54,5 +56,14 @@ public class Reservation {
 
     public void setPayee(boolean payee) {
         this.payee = payee;
+    }
+
+    @Override
+    public String toString() {
+        return "Reservation{" +
+                ", user=" + user +
+                ", event=" + event +
+                ", payee=" + payee +
+                '}';
     }
 }

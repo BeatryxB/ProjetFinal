@@ -6,9 +6,12 @@ import com.example.projetfinal.Entity.Reservation;
 import com.example.projetfinal.Entity.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestMethod;
+
+import javax.servlet.http.HttpSession;
+import java.util.List;
 
 @Controller
 public class Home {
@@ -22,15 +25,38 @@ public class Home {
     }
 
     @RequestMapping("/home")
-    public String home(@ModelAttribute("user") User user, ModelMap model) {
+    public String home(ModelMap model, HttpSession session) {
+        if(session.getAttribute("user")==null){
+            return "redirect:/login";
+        }else
+        {
+        String userPseudo = (String) session.getAttribute("user");
+        User user = userRepository.getUserByPseudo(userPseudo);
         model.addAttribute("user",user.getPseudo());
 
-        if(reservationRepository.getReservationByUser(user).getIdEvent()!=null){
-            model.addAttribute("res","this user don't have any Reservation");
+        List<Reservation> res = reservationRepository.getReservationsByUser(user);
+        if(res.size()>=0){
+            model.addAttribute("res", res);
         }
-
+        else{
+            model.addAttribute("res", "This user doesn't have any reservation");
+        }
         return "home";
+        }
     }
+
+    @RequestMapping("/logout")
+    public String logout(HttpSession session) {
+        session.invalidate();
+        return "redirect:/";
+    }
+
+    @RequestMapping(value = "/deleteres/{resid}", method = RequestMethod.GET)
+    public String DeleteReservation(@PathVariable("resid") Long resid) {
+        reservationRepository.deleteById(resid);
+        return "redirect:/home";
+    }
+
 
 
 }

@@ -7,6 +7,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.servlet.http.HttpSession;
+
 @Controller
 public class Index {
 
@@ -17,8 +19,13 @@ public class Index {
     }
 
     @GetMapping({"/"})
-    public String hello() {
-        return "hello";
+    public String hello(HttpSession session) {
+        if(session.getAttribute("user")!=null){
+            return "redirect:/home";
+        }
+        else{
+            return "hello";
+        }
     }
 
 

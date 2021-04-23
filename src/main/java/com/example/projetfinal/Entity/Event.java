@@ -8,18 +8,21 @@ public class Event {
     @Id
     @GeneratedValue
     private Long idEvent;
-    @ManyToOne(cascade = {CascadeType.ALL})
+    @ManyToOne()
+    @JoinColumn(name = "id_type")
     private Type type;
     private String titre;
     private String description;
     private String date;
+    private String time;
     private String localisation;
 
-    public Event(String titre, String description, Type type, String date, String localisation) {
+    public Event(String titre, String description, Type type, String date, String time, String localisation) {
         this.titre = titre;
         this.description = description;
         this.type = type;
         this.date = date;
+        this.time = time;
         this.localisation = localisation;
     }
 
@@ -75,6 +78,14 @@ public class Event {
         return idEvent;
     }
 
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
+    }
+
     @Override
     public String toString() {
         return "Event{" +
@@ -83,6 +94,7 @@ public class Event {
                 ", description='" + description + '\'' +
                 ", type='" + type + '\'' +
                 ", date='" + date + '\'' +
+                ", time='" + time + '\'' +
                 ", localisation='" + localisation + '\'' +
                 '}';
     }
