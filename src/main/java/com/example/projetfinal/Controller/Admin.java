@@ -69,13 +69,13 @@ public class Admin {
         return "auEvent";
     }
 
-    @RequestMapping(value = "/auEvent", method = RequestMethod.GET)
-    public String AUEvent(@PathVariable("idEvent") Long idEvent)
-    { return "auEvent"; }
+    //@RequestMapping(value = "/auEvent", method = RequestMethod.GET)
+    //public String AUEvent(@PathVariable("idEvent") Long idEvent)
+    //{ return "auEvent"; }
 
-    @RequestMapping(value = "/updateuser",  method = RequestMethod.GET)
-    public String UpdateUser(@PathVariable("idUser") Long idUser)
-    { return "updateuser"; }
+    //@RequestMapping(value = "/updateuser",  method = RequestMethod.GET)
+    //public String UpdateUser(@PathVariable("idUser") Long idUser)
+    //{ return "updateuser"; }
 
     @RequestMapping(value = "/deleteuser/{idUser}", method = RequestMethod.GET)
     public String DeleteUser(@PathVariable("idUser") Long idUser) {

@@ -16,7 +16,7 @@
 <div class="div_background">
     <h1>Create your account</h1>
     <form method="post">
-        <p>Pseudo :<input value="${idUser}" type="text" name="pseudo" id="pseudo"/></p>
+        <p>Pseudo :<input  type="text" name="pseudo" id="pseudo" value="${idUser}"/></p>
         <p>FirstName :<input value="${firstName}" type="text" name="firstName" id="firstname"/></p>
         <p>LastName :<input value="${lastName}" type="text" name="lastName" id="lastname"/></p>
         <p>Date of birth :<input value="${dateOfBirth}" type="date" name="dateOfBirth" id="date"/></p>

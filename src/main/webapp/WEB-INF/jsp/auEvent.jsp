@@ -16,12 +16,12 @@
 <div class="div_background">
     <h1>Login</h1>
     <form method="post">
-        <p>Title : <input value=${titre}type="text" name="titre" id="titre"/></p>
-        <p>Description :<input value=${description} type="text" name="description" id="description"/></p>
-        <p>Date : <input value=${date} type="date" name="date" id="date"/></p>
-        <p>Time : <input value=${time} type="text" name="time" id="time"/></p>
-        <p>Type : <input value=${type} type="text" name="type" id="type"/></p>
-        <p>Localisation : <input value=${localisation} type="text" name="localisation" id="localisation"/></p>
+        <p>Title : <input value="${titre}" type="text" name="titre" id="titre"/></p>
+        <p>Description :<input value="${description}" type="text" name="description" id="description"/></p>
+        <p>Date : <input value="${date}" type="date" name="date" id="date"/></p>
+        <p>Time : <input value="${time}" type="text" name="time" id="time"/></p>
+        <p>Type : <input value="${type}" type="text" name="type" id="type"/></p>
+        <p>Localisation : <input value="${localisation}" type="text" name="localisation" id="localisation"/></p>
         <input type="submit" class="btn btn-success" value="AUEvent"/>
     </form>
     <p style="color:red">${error}</p>

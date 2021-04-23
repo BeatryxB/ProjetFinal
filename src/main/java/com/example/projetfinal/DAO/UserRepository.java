@@ -8,5 +8,6 @@ import java.util.List;
 public interface UserRepository extends CrudRepository<User, Long> {
 
     public User getUserByPseudo(String Pseudo);
+    public User getUserByIdUser(int idUser);
 
 }
