@@ -4,6 +4,7 @@ import com.example.projetfinal.DAO.EventRepository;
 import com.example.projetfinal.DAO.UserRepository;
 import com.example.projetfinal.Entity.Event;
 import com.example.projetfinal.Entity.User;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpSession;
 
+@Controller
 public class AUEvent {
 
     private final UserRepository userRepositorie;

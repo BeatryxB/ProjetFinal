@@ -24,7 +24,7 @@
       <tr>
         <td><c:out value="${reservation.event.titre}"/></td>
         <td><c:out value="${reservation.event.description}"/></td>
-        <td><c:out value="${reservation.event.type.typeField}"/></td>
+        <td><c:out value="${reservation.event.type}"/></td>
         <td><c:out value="${reservation.event.date}"/></td>
         <td><c:out value="${reservation.event.time}"/></td>
         <td><c:out value="${reservation.event.localisation}"/></td>

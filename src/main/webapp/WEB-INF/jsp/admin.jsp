@@ -65,14 +65,15 @@
                     <td><c:out value="${userLists.dateOfBirth}" /></td>
                     <td><c:out value="${userLists.gender}" /></td>
                     <td>
-                        <a href="edit?id=<c:out value='${userLists.idUser}' />">Update</a>
+                        <a href="/updateuser/${userLists.idUser}" class="btn btn-danger"> Update</a>
                         &nbsp;&nbsp;&nbsp;&nbsp
-                        <a href="/deleteeven/${userLists.idUser}" class="btn btn-danger"  />>Delete</a>
+                        <a href="/deleteuser/${userLists.idUser}" class="btn btn-danger"> Delete</a>
                     </td>
                 </tr>
             </c:forEach>
         </table>
 
+    </div>
     </div>
 
 </div>

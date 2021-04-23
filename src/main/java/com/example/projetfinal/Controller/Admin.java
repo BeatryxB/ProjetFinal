@@ -69,6 +69,10 @@ public class Admin {
         return "auEvent";
     }
 
+    @RequestMapping(value = "/updateuser",  method = RequestMethod.GET)
+    public String UpdateUser(@PathVariable("idUser") Long idUser)
+    { return "updateuser"; }
+
     @RequestMapping(value = "/deleteuser/{idUser}", method = RequestMethod.GET)
     public String DeleteUser(@PathVariable("idUser") Long idUser) {
         userRepositorie.deleteById(idUser);
