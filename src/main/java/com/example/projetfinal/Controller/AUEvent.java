@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -27,13 +28,17 @@ public class AUEvent {
 
     @RequestMapping("/auEvent")
     public String signup(HttpSession session) {
-        if(session.getAttribute("user")!=null){
+        if(session.getAttribute("user")==null){
             return "redirect:/home";
         }
         else{
             return "auEvent";
         }
     }
+
+
+
+
 
     @RequestMapping(value = "/auEvent", method = RequestMethod.POST)
     public String AddEventRequest(@ModelAttribute("event") Event event, BindingResult result, ModelMap model) {
@@ -54,23 +59,6 @@ public class AUEvent {
         return "auEvent";
     }
 
-    //@RequestMapping(value = "/auEvent", method = RequestMethod.POST)
-    //public String UpdateEventRequest(@ModelAttribute("event") Event event, BindingResult result, ModelMap model) {
 
-      //  Event u = (Event) result.getTarget();
-       // System.out.println(u);
-
-        //if(u.getTitre().equals("")||u.getDescription().equals("")||u.getLocalisation().equals("")||u.getDate().equals("")||u.getType().equals("")||u.getType().equals("")){
-          //  model.addAttribute("error", "One of field isn't set");
-        //}
-        //else{
-
-          //  eventRepositorie.save(u);
-            //model.addAttribute("error", "Your event was update, please sign in please");
-
-        //}
-
-        //return "auEvent";
-    //}
 
 }

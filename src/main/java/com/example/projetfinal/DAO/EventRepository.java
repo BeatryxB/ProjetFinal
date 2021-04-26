@@ -8,6 +8,6 @@ import org.springframework.data.repository.CrudRepository;
 import java.util.List;
 
 public interface EventRepository extends CrudRepository<Event, Long> {
-    public Event getEventByIdEvent(int idEvent);
+    public Event getEventByIdEvent(Long idEvent);
 
 }

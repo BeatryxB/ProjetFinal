@@ -33,7 +33,7 @@
                     <td><c:out value="${eventLists.date}" /></td>
                     <td><c:out value="${eventLists.localisation}" /></td>
                     <td>
-                        <a href="edit?id=<c:out value='${eventLists.idEvent}' />">Update</a>
+                        <a href="/updateevent/${eventLists.idEvent}" />">Update</a>
                         &nbsp;&nbsp;&nbsp;&nbsp;
 
                         <a href="/deleteeven/${eventLists.idEvent}"class="btn btn-danger" />Delete</a>

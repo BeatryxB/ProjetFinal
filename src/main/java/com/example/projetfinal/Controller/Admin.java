@@ -63,19 +63,22 @@ public class Admin {
         return "redirect:/admin";
     }
 
-    @RequestMapping(value = "/auEvent", method = RequestMethod.GET)
-    public String AUEvent()
+    @RequestMapping(value = "/updateevent/{idEvent}", method = RequestMethod.GET)
+    public String updateEvent(@PathVariable("idEvent") Long idEvent, ModelMap model, HttpSession session)
     {
-        return "auEvent";
+        Event event = eventRepositorie.getEventByIdEvent(idEvent);
+        model.addAttribute("event",event);
+        return "updateevent";
     }
 
-    //@RequestMapping(value = "/auEvent", method = RequestMethod.GET)
-    //public String AUEvent(@PathVariable("idEvent") Long idEvent)
-    //{ return "auEvent"; }
+    @RequestMapping(value = "/updateuser/{idUser}", method = RequestMethod.GET)
+    public String UpdateUser(@PathVariable("idUser") Long idUser, ModelMap model, HttpSession session)
+    {
+        User user2 = userRepositorie.getUserByIdUser(idUser);
+        model.addAttribute("user",user2);
+        return "updateuser";
+    }
 
-    //@RequestMapping(value = "/updateuser",  method = RequestMethod.GET)
-    //public String UpdateUser(@PathVariable("idUser") Long idUser)
-    //{ return "updateuser"; }
 
     @RequestMapping(value = "/deleteuser/{idUser}", method = RequestMethod.GET)
     public String DeleteUser(@PathVariable("idUser") Long idUser) {

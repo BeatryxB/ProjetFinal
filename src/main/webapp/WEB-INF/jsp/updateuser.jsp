@@ -16,13 +16,13 @@
 <div class="div_background">
     <h1>Create your account</h1>
     <form method="post">
-        <p>Pseudo :<input  type="text" name="pseudo" id="pseudo" value="${idUser}"/></p>
-        <p>FirstName :<input value="${firstName}" type="text" name="firstName" id="firstname"/></p>
-        <p>LastName :<input value="${lastName}" type="text" name="lastName" id="lastname"/></p>
-        <p>Date of birth :<input value="${dateOfBirth}" type="date" name="dateOfBirth" id="date"/></p>
+        <p>Pseudo :<input  type="text" name="pseudo" id="pseudo" value="${user.idUser}"/></p>
+        <p>FirstName :<input value="${user.firstName}" type="text" name="firstName" id="firstname"/></p>
+        <p>LastName :<input value="${user.lastName}" type="text" name="lastName" id="lastname"/></p>
+        <p>Date of birth :<input value="${user.dateOfBirth}" type="date" name="dateOfBirth" id="date"/></p>
         <p>Gender :
             <select name="gender" id="gender ">
-                <option value="${gender}"></option>
+                <option value="${user.gender}">${user.gender}</option>
                 <option value="Female">Female</option>
                 <option value="Male">Male</option>
                 <option value="Other">Other</option>
@@ -32,7 +32,7 @@
         <p>Retype Password :<input type="password" name="password" id="password2"/></p>
         <input type="submit" class="btn btn-success" value="SignUp"/>
         <p style="color:red">${error}</p>
-        <a href="login" class="btn btn-secondary">If you have any account, you can click here.</a>
+        <a href="admin" class="btn btn-secondary">Back Admin you can click here.</a>
     </form>
 </div>
 </body>

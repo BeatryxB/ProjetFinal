@@ -50,6 +50,8 @@ public class UpdateUser {
         }
     }
 
+
+
     @RequestMapping(value = "/updateuser", method = RequestMethod.POST)
     public String loginRequest(@ModelAttribute("user") User user, BindingResult result, ModelMap model) {
 
