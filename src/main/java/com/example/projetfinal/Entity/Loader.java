@@ -26,8 +26,8 @@ public class Loader implements CommandLineRunner {
     public void run(String... strings)throws Exception {
         User u = new User("pseudo","jean", "Dupont", "17/08/1998", "Male","pass");
         Type t = new Type("Concert");
-        Event e = new Event("Concert","Music Concert","Concert","12/01/2020","21","Church");
-        Event e2 = new Event("Concert2","Music Concert2","Concert","12/01/2021","20","Church");
+        Event e = new Event("Concert","Music Concert",t,"12/01/2020","21","Church");
+        Event e2 = new Event("Concert2","Music Concert2",t,"12/01/2021","20","Church");
         this.userRepository.save(u);
         this.typeRepository.save(t);
         this.eventRepository.save(e);

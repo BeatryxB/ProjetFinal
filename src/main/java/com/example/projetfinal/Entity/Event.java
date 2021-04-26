@@ -3,6 +3,7 @@ package com.example.projetfinal.Entity;
 import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Event {
@@ -10,16 +11,16 @@ public class Event {
     @Id
     @GeneratedValue
     private Long idEvent;
-    //@ManyToOne()
+    @ManyToOne()
     @JoinColumn(name = "id_type")
-    private String type;
+    private Type type;
     private String titre;
     private String description;
     private String date;
     private String time;
     private String localisation;
 
-    public Event(String titre, String description, String type, String date, String time, String localisation) {
+    public Event(String titre, String description, Type type, String date, String time, String localisation) {
         this.titre = titre;
         this.description = description;
         this.type = type;
@@ -48,11 +49,11 @@ public class Event {
         this.description = description;
     }
 
-    public String getType() {
+    public Type getType() {
         return type;
     }
 
-    public void setType(String type) {
+    public void setType(Type type) {
         this.type = type;
     }
 

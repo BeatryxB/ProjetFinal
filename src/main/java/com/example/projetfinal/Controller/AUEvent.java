@@ -1,42 +1,75 @@
 package com.example.projetfinal.Controller;
 
 import com.example.projetfinal.DAO.EventRepository;
+import com.example.projetfinal.DAO.TypeRepository;
 import com.example.projetfinal.DAO.UserRepository;
 import com.example.projetfinal.Entity.Event;
-import com.example.projetfinal.Entity.User;
+import com.example.projetfinal.Entity.Type;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
+import java.util.List;
 
 @Controller
 public class AUEvent {
 
-    private final UserRepository userRepositorie;
     private final EventRepository eventRepositorie;
+    private final TypeRepository typeRepository;
 
-    public AUEvent(UserRepository userRepositorie, EventRepository eventRepository) {
-        this.userRepositorie = userRepositorie;
+    public AUEvent(UserRepository userRepositorie, EventRepository eventRepository, TypeRepository typeRepository) {
         this.eventRepositorie = eventRepository;
-
+        this.typeRepository = typeRepository;
     }
 
-    @RequestMapping("/auEvent")
-    public String signup(HttpSession session) {
-        if(session.getAttribute("user")!=null){
-            return "redirect:/home";
+    @RequestMapping("/event")
+    public String auEvent(HttpSession session, ModelMap model) {
+        if(session.getAttribute("user")==null){
+            return "redirect:/login";
         }
         else{
+            List<Type> typeAll = (List<Type>) typeRepository.findAll();
+            model.addAttribute("type", typeAll);
+            model.addAttribute("button", "Add one event");
+            model.addAttribute("action","/addevent");
             return "auEvent";
         }
     }
 
+    @RequestMapping(value = "/addevent", method = RequestMethod.POST)
+    public String AddEventRequest(@ModelAttribute("event") Event event, BindingResult result, ModelMap model, @RequestParam("typeadd") String addType) {
+
+
+        Event eve = (Event) result.getTarget();
+        System.out.println(eve);
+
+        if(eve.getTitre().equals("")||eve.getDescription().equals("")||eve.getLocalisation().equals("")||eve.getDate().equals("")||eve.getTime().equals("")|| eve.getType() == null){
+            if(addType.equals("")){
+                model.addAttribute("error", "One of field isn't set");
+                List<Type> typeAll = (List<Type>) typeRepository.findAll();
+                model.addAttribute("type", typeAll);
+                model.addAttribute("button","add one event");
+                model.addAttribute("action","/addevent");
+            }else
+            {
+                Type t = new Type(addType);
+                typeRepository.save(t);
+                eve.setType(typeRepository.getTypeByTypeFieldIsLike(t.getTypeField()));
+                eventRepositorie.save(eve);
+                return "redirect:/admin";
+            }
+        }
+        else{
+            eventRepositorie.save(eve);
+            return "redirect:/admin";
+        }
+        return "auEvent";
+    }
+
     @RequestMapping(value = "/auEvent", method = RequestMethod.POST)
-    public String AddEventRequest(@ModelAttribute("event") Event event, BindingResult result, ModelMap model) {
+    public String UpdateEventRequest(@ModelAttribute("event") Event event, BindingResult result, ModelMap model) {
 
         Event u = (Event) result.getTarget();
         System.out.println(u);
@@ -45,32 +78,12 @@ public class AUEvent {
             model.addAttribute("error", "One of field isn't set");
         }
         else{
-
             eventRepositorie.save(u);
-            model.addAttribute("error", "Your event was created, please sign in please");
+            return "redirect:/admin";
 
         }
 
         return "auEvent";
     }
-
-    //@RequestMapping(value = "/auEvent", method = RequestMethod.POST)
-    //public String UpdateEventRequest(@ModelAttribute("event") Event event, BindingResult result, ModelMap model) {
-
-      //  Event u = (Event) result.getTarget();
-       // System.out.println(u);
-
-        //if(u.getTitre().equals("")||u.getDescription().equals("")||u.getLocalisation().equals("")||u.getDate().equals("")||u.getType().equals("")||u.getType().equals("")){
-          //  model.addAttribute("error", "One of field isn't set");
-        //}
-        //else{
-
-          //  eventRepositorie.save(u);
-            //model.addAttribute("error", "Your event was update, please sign in please");
-
-        //}
-
-        //return "auEvent";
-    //}
 
 }

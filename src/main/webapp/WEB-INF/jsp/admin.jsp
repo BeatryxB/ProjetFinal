@@ -24,6 +24,7 @@
                 <th>Description</th>
                 <th>Date</th>
                 <th>Localisation</th>
+                <th>Type</th>
             </tr>
             <c:forEach var="eventLists" items="${eventList}">
                 <tr>
@@ -32,6 +33,7 @@
                     <td><c:out value="${eventLists.description}" /></td>
                     <td><c:out value="${eventLists.date}" /></td>
                     <td><c:out value="${eventLists.localisation}" /></td>
+                    <td><c:out value="${eventLists.type.typeField}" /></td>
                     <td>
                         <a href="edit?id=<c:out value='${eventLists.idEvent}' />">Update</a>
                         &nbsp;&nbsp;&nbsp;&nbsp;
@@ -41,7 +43,7 @@
                 </tr>
             </c:forEach>
         </table>
-        <a href="auEvent" class="btn btn-secondary">Add Event.</a>
+        <a href="event" class="btn btn-secondary">Add Event.</a>
     </div>
 
 
