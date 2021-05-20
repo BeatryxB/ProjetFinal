@@ -11,5 +11,6 @@ import java.util.List;
 public interface ReservationRepository extends CrudRepository<Reservation, Long> {
 
     public List<Reservation> getReservationsByUser(User user);
+    public Reservation getReservationByUserAndEvent(User user, Event event);
 
 }

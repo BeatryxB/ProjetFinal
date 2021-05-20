@@ -151,6 +151,7 @@ public class Home {
         User user = userRepository.getUserByPseudo(userPseudo);
 
         List<Reservation> res = reservationRepository.getReservationsByUser(user);
+        if(eve.size()!=0){
         for(int i=0;res.size()>i;i++){
             for(int j=0; eve.size()>j;j++){
                 System.out.println(eve.get(j).getIdEvent() + " " + res.get(i).getEvent().getIdEvent());
@@ -160,7 +161,7 @@ public class Home {
             }
         }
             model.addAttribute("eve", eve);
-
+        }
         return "searchevent";
     }
 

@@ -1,19 +1,14 @@
 package com.example.projetfinal.Controller;
 
-import com.example.projetfinal.DAO.EventRepository;
-import com.example.projetfinal.DAO.ReservationRepository;
-import com.example.projetfinal.DAO.TypeRepository;
-import com.example.projetfinal.DAO.UserRepository;
-import com.example.projetfinal.Entity.Event;
-import com.example.projetfinal.Entity.Reservation;
-import com.example.projetfinal.Entity.Type;
-import com.example.projetfinal.Entity.User;
+import com.example.projetfinal.DAO.*;
+import com.example.projetfinal.Entity.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 
@@ -24,12 +19,14 @@ public class Admin {
     private final UserRepository userRepositorie;
     private final TypeRepository typeRepository;
     private final ReservationRepository reservationRepository;
+    private final ReservationDateRepository reservationDateRepository;
 
-    public Admin(EventRepository eventRepositorie, UserRepository userRepositorie, TypeRepository typeRepository, ReservationRepository reservationRepository) {
+    public Admin(EventRepository eventRepositorie, UserRepository userRepositorie, TypeRepository typeRepository, ReservationRepository reservationRepository, ReservationDateRepository reservationDateRepository) {
         this.eventRepositorie = eventRepositorie;
         this.userRepositorie = userRepositorie;
         this.typeRepository = typeRepository;
         this.reservationRepository = reservationRepository;
+        this.reservationDateRepository = reservationDateRepository;
     }
 
     @GetMapping({"/admin"})
@@ -122,10 +119,6 @@ public class Admin {
         return "auEvent";
     }
 
-    //@RequestMapping(value = "/updateuser",  method = RequestMethod.GET)
-    //public String UpdateUser(@PathVariable("idUser") Long idUser)
-    //{ return "updateuser"; }
-
     @RequestMapping(value = "/deleteuser/{idUser}", method = RequestMethod.GET)
     public String DeleteUser(@PathVariable("idUser") Long idUser) {
         userRepositorie.deleteById(idUser);
@@ -151,6 +144,8 @@ public class Admin {
         User user = userRepositorie.getUserByPseudo(userPseudo);
         Event event = eventRepositorie.getEventByIdEvent(idEvent);
         reservationRepository.save(new Reservation(user,event));
+        //Reservation res = reservationRepository.getReservationByUserAndEvent(user,event);
+        //reservationDateRepository.save(new ReservationDate(res,java.time.LocalDate.now().format(DateTimeFormatter.ofPattern("dd-MM-yyyy"))));
         return "redirect:/home";
     }
 }
