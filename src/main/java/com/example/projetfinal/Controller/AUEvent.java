@@ -43,7 +43,6 @@ public class AUEvent {
 
 
         Event eve = (Event) result.getTarget();
-        System.out.println(eve);
 
         if(eve.getTitre().equals("")||eve.getDescription().equals("")||eve.getLocalisation().equals("")||eve.getDate().equals("")||eve.getTime().equals("")|| eve.getType() == null){
             if(addType.equals("")){
@@ -65,24 +64,6 @@ public class AUEvent {
             eventRepositorie.save(eve);
             return "redirect:/admin";
         }
-        return "auEvent";
-    }
-
-    @RequestMapping(value = "/auEvent", method = RequestMethod.POST)
-    public String UpdateEventRequest(@ModelAttribute("event") Event event, BindingResult result, ModelMap model) {
-
-        Event u = (Event) result.getTarget();
-        System.out.println(u);
-
-        if(u.getTitre().equals("")||u.getDescription().equals("")||u.getLocalisation().equals("")||u.getDate().equals("")||u.getType().equals("")||u.getType().equals("")){
-            model.addAttribute("error", "One of field isn't set");
-        }
-        else{
-            eventRepositorie.save(u);
-            return "redirect:/admin";
-
-        }
-
         return "auEvent";
     }
 

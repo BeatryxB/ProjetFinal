@@ -9,7 +9,7 @@ public class Tarif {
 
     @Id
     @GeneratedValue
-    Long idTarif;
+    Long id;
     private String libelle;
     private float tarif;
     private int ageMin;
@@ -18,7 +18,7 @@ public class Tarif {
 
     public Tarif(Long idTarif, String libelle, float tarif, int ageMin, int ageMax)
     {
-        this.idTarif = idTarif;
+        this.id = idTarif;
         this.libelle = libelle;
         this.tarif = tarif;
         this.ageMax = ageMax;
@@ -31,12 +31,12 @@ public class Tarif {
     public float getTarif() { return tarif; }
     public int getAgeMax() { return ageMax; }
     public int getAgeMin() { return ageMin; }
-    public Long getIdTarif() { return idTarif; }
+    public Long getId() { return id; }
     public String getLibelle() { return libelle; }
 
     public void setAgeMax(int ageMax) { this.ageMax = ageMax; }
     public void setAgeMin(int ageMin) { this.ageMin = ageMin; }
-    public void setIdTarif(Long idTarif) { this.idTarif = idTarif; }
+    public void setId(Long idTarif) { this.id = idTarif; }
     public void setLibelle(String libelle) { this.libelle = libelle; }
     public void setTarif(float tarif) { this.tarif = tarif; }
 }

@@ -16,34 +16,34 @@
 <body>
 <div class="div_background">
     <div align="center">
+
         <table border="1" cellpadding="5">
            <h2>Event list</h2>
+            <a href="event" class="btn btn-secondary">Add Event.</a>
             <tr>
-                <th>Id</th>
                 <th>Title</th>
                 <th>Description</th>
                 <th>Date</th>
+                <th>Time</th>
                 <th>Localisation</th>
                 <th>Type</th>
             </tr>
             <c:forEach var="eventLists" items="${eventList}">
                 <tr>
-                    <td><c:out value="${eventLists.idEvent}" /></td>
                     <td><c:out value="${eventLists.titre}" /></td>
                     <td><c:out value="${eventLists.description}" /></td>
                     <td><c:out value="${eventLists.date}" /></td>
+                    <td><c:out value="${eventLists.time}" /></td>
                     <td><c:out value="${eventLists.localisation}" /></td>
                     <td><c:out value="${eventLists.type.typeField}" /></td>
                     <td>
-                        <a href="edit?id=<c:out value='${eventLists.idEvent}' />">Update</a>
-                        &nbsp;&nbsp;&nbsp;&nbsp;
-
+                        <a href="/event/edit/<c:out value='${eventLists.idEvent}'/>" class="btn btn-secondary">Update</a>
+                        <a href="/tarif/${eventLists.idEvent}" class="btn btn-warning">see tarification</a>
                         <a href="/deleteeven/${eventLists.idEvent}"class="btn btn-danger" />Delete</a>
                     </td>
                 </tr>
             </c:forEach>
         </table>
-        <a href="event" class="btn btn-secondary">Add Event.</a>
     </div>
 
 
@@ -51,7 +51,6 @@
         <table border="1" cellpadding="5">
             <h2>User list</h2>
             <tr>
-                <th>Id</th>
                 <th>Pseudo</th>
                 <th>First Name</th>
                 <th>Last Name</th>
@@ -60,14 +59,13 @@
             </tr>
             <c:forEach var="userLists" items="${userList}">
                 <tr>
-                    <td><c:out value="${userLists.idUser}" /></td>
                     <td><c:out value="${userLists.pseudo}" /></td>
                     <td><c:out value="${userLists.firstName}" /></td>
                     <td><c:out value="${userLists.lastName}" /></td>
                     <td><c:out value="${userLists.dateOfBirth}" /></td>
                     <td><c:out value="${userLists.gender}" /></td>
                     <td>
-                        <a href="/updateuser/${userLists.idUser}" class="btn btn-danger"> Update</a>
+                        <a href="/user/edit/${userLists.idUser}" class="btn btn-secondary"> Update</a>
                         &nbsp;&nbsp;&nbsp;&nbsp
                         <a href="/deleteuser/${userLists.idUser}" class="btn btn-danger"> Delete</a>
                     </td>

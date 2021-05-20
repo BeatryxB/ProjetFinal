@@ -25,7 +25,7 @@
             <Select name="type" id="type">
                 <option value=""></option>
                 <c:forEach items = "${type}" var="typeEvent">
-                    <option value="${typeEvent.id}">${typeEvent.typeField}</option>
+                    <option value="${typeEvent.id}" <c:if test="${typeEvent.id==selected.id}">selected </c:if>>${typeEvent.typeField}</option>
                 </c:forEach>
             </Select>
             if your type is not here, please enter your type : <input type="text" name="typeadd" id="typeAdd"/>
