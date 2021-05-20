@@ -1,6 +1,9 @@
 package com.example.projetfinal.Entity;
 
+import org.hibernate.annotations.Cascade;
+
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Event {
@@ -11,6 +14,9 @@ public class Event {
     @ManyToOne()
     @JoinColumn(name = "id_type")
     private Type type;
+    @OneToMany()
+    @JoinColumn(name = "id_tarif")
+    private List<Tarif> tarif;
     private String titre;
     private String description;
     private String date;
@@ -21,6 +27,17 @@ public class Event {
         this.titre = titre;
         this.description = description;
         this.type = type;
+        this.date = date;
+        this.time = time;
+        this.localisation = localisation;
+    }
+
+    public Event(Long idEvent, Type type, List<Tarif> tarif, String titre, String description, String date, String time, String localisation) {
+        this.idEvent = idEvent;
+        this.type = type;
+        this.tarif = tarif;
+        this.titre = titre;
+        this.description = description;
         this.date = date;
         this.time = time;
         this.localisation = localisation;
@@ -97,5 +114,13 @@ public class Event {
                 ", time='" + time + '\'' +
                 ", localisation='" + localisation + '\'' +
                 '}';
+    }
+
+    public List<Tarif> getTarif() {
+        return tarif;
+    }
+
+    public void setTarif(List<Tarif> tarif) {
+        this.tarif = tarif;
     }
 }

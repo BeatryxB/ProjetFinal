@@ -24,10 +24,10 @@ public class Loader implements CommandLineRunner {
     }
     @Override
     public void run(String... strings)throws Exception {
-        User u = new User("pseudo","jean", "Dupont", "17/08/1998", "Male","pass");
+        User u = new User("pseudo","jean", "Dupont", "1998-08-17", "Male","pass");
         Type t = new Type("Concert");
-        Event e = new Event("Concert","Music Concert",t,"12/01/2020","21","Church");
-        Event e2 = new Event("Concert2","Music Concert2",t,"12/01/2021","20","Church");
+        Event e = new Event("Concert","Music Concert",t,"2020-01-12","21:00","Church");
+        Event e2 = new Event("Concert2","Music Concert2",t,"2021-01-12","20:00","Church");
         this.userRepository.save(u);
         this.typeRepository.save(t);
         this.eventRepository.save(e);
